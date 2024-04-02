@@ -1,32 +1,23 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## Esercizio di oggi: Laravel Boolfolio - Base
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+nome repo: `laravel-auth`
 
-## Init project
+Creiamo con Laravel il nostro sistema di gestione del nostro Portfolio di progetti.
 
-Per il frontend:
+Oggi iniziamo un nuovo progetto che si arricchirà nel corso delle prossime lezioni: man mano aggiungeremo funzionalità e vedremo la nostra applicazione crescere ed evolvere.
+Nel pomeriggio, rifate ciò che abbiamo visto insieme stamattina stilando tutto a vostro piacere utilizzando SASS.
 
-```
-npm install
-npm run dev
-```
+### Descrizione:
 
-Per il backend:
+Ripercorriamo gli steps fatti a lezione ed iniziamo un nuovo progetto usando il template con auth realizzato insieme:  
+`https://github.com/TizianoN/117-laravel-auth-template`
 
-```
-composer install
-php artisan serve
-```
+Iniziamo con il definire il layout, modello, migrazione, controller e rotte necessarie per il sistema portfolio:
 
-Poi copia il file `.env.example` in `.env` e configura la connessione al DB
+1. Autenticazione: si parte con l'autenticazione e la creazione di un layout per back-office;
+2. Creazione del modello Project con relativa migrazione, seeder, controller e rotte;
+3. Per la parte di back-office creiamo un resource controller Admin\ProjectController per gestire tutte le operazioni CRUD dei progetti;
 
-## Create a controller
+### Bonus
 
-...
-
-## Create a model
+Implementiamo la validazione dei dati dei Progetti nelle operazioni CRUD che lo richiedono usando due form requests.
