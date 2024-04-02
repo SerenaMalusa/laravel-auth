@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Guest\DashboardController as GuestDashboardController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [GuestDashboardController::class, 'index'])
   ->name('home');
 
+Route::get('projects/', [ProjectController::class, 'index'])->name('projects.index');
+
 // # Rotte protette
 Route::middleware('auth')
   ->prefix('/admin')
@@ -27,7 +30,6 @@ Route::middleware('auth')
 
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])
       ->name('dashboard');
-
   });
 
 require __DIR__ . '/auth.php';
