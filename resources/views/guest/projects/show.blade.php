@@ -14,13 +14,20 @@
 
             <h5><b>Description</b></h5>
             <p>{{ $project->description }}</p>
-            <p>
-                <b>Link: </b>
-                <a href="{{ $project->github_link }}"> {{ $project->github_link }}</a>
-            </p>
-            
+                        
 
             <div class="row">
+
+                <div class="col-6">
+                    <p>
+                        <b>Link: </b>
+                        <a href="{{ $project->github_link }}"> {{ $project->github_link }}</a>
+                    </p>
+                </div>
+
+                <div class="col-6">
+                    <p><b>Repo: </b>{{ $project->repository }}</p>
+                </div>
                 
                 <div class="col-6">
                     <p><b>Creation's date: </b>{{ $project->creation_date }}</p>
@@ -30,7 +37,7 @@
                 </div>
 
                 <div class="col-12">
-                    <a class="btn btn-primary ms-2" href="#">Modify this comic</a>
+                    <a class="btn btn-primary ms-2" href="{{ route('admin.projects.edit', $project) }}">Modify this comic</a>
                     <form class="d-inline" action="#" method="POST">
                         @csrf
                         @method('DELETE')
