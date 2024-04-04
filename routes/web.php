@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Guest\DashboardController as GuestDashboardController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
-use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\Guest\ProjectController as GuestProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [GuestDashboardController::class, 'index'])
   ->name('home');
 
-Route::get('projects/', [ProjectController::class, 'index'])->name('projects.index');
+Route::get('projects/', [GuestProjectController::class, 'index'])->name('projects.index');
+Route::get('projects/{project}', [GuestProjectController::class, 'show'])->name('projects.show');
 
 // # Rotte protette
 Route::middleware('auth')
@@ -30,6 +31,7 @@ Route::middleware('auth')
 
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])
       ->name('dashboard');
+    // Route::resource('projects/create', )
   });
 
 require __DIR__ . '/auth.php';

@@ -21,9 +21,7 @@
             <th scope="col">Link</th>
             <th scope="col">Repository</th>
             <th scope="col">Last commit</th>
-            @auth
-                <th>Links</th>
-            @endauth
+            <th class="text-center">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -35,22 +33,22 @@
                     </td>
                     <td>{{ $project->repository }}</td>
                     <td>{{ $project->last_commit }}</td>
+                    <td class="text-center">
+                      <a href="{{ route('projects.show', $project )}}">
+                          <i class="fa-solid fa-circle-info"></i>
+                      </a>
                     @auth
-                        <td>
-                            <a href="#">
-                                <i class="fa-solid fa-circle-info"></i>
-                            </a>
-                            <a href="#">
-                            <i class="fa-solid fa-file-pen"></i>
-                            </a>
-                            <form class="d-inline-block" action="#" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button class="border border-0 delete-button" type="submit">
-                                <i class="fa-solid fa-trash-can text-danger"></i>
-                            </button>
-                            </form>
-                        </td>
+                        <a href="#">
+                        <i class="fa-solid fa-file-pen"></i>
+                        </a>
+                        <form class="d-inline-block" action="#" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="border border-0 delete-button" type="submit">
+                            <i class="fa-solid fa-trash-can text-danger"></i>
+                        </button>
+                        </form>
+                    </td>
                     @endauth
                 </tr>
             @endforeach
