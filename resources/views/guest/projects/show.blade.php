@@ -68,7 +68,7 @@
 
             if (!confirm(
 `The delete action is not reversible.
-Are you sure that you want to remove this comic from the list?`
+Are you sure that you want to remove this project from the list?`
             )) {
                 e.preventDefault();
             } 
