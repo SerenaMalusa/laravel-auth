@@ -17,7 +17,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('projects.create');
+        return view('auth.projects.form');
     }
 
     /**
@@ -33,6 +33,6 @@ class ProjectController extends Controller
         $project->fill($data);
         $project->save();
 
-        return redirect()->route('project.show', $project);
+        return redirect()->route('projects.show', $project);
     }
 }

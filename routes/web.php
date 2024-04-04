@@ -3,6 +3,8 @@
 use App\Http\Controllers\Guest\DashboardController as GuestDashboardController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Guest\ProjectController as GuestProjectController;
+use App\Http\Controllers\Auth\ProjectController as AuthProjectController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,7 +33,14 @@ Route::middleware('auth')
 
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])
       ->name('dashboard');
-    // Route::resource('projects/create', )
+  });
+
+Route::middleware('auth')
+  ->name('auth.')
+  ->prefix('auth')
+  ->group(function () {
+
+    Route::resource('projects', AuthProjectController::class);
   });
 
 require __DIR__ . '/auth.php';

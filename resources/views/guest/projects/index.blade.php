@@ -9,7 +9,7 @@
         <h1 class="mb-3 col-6">{{ $title }}</h1>
         @auth
             <div class="col-2 text-end">
-                <a class="btn btn-primary" href="#">Create a new Project</a>
+                <a class="btn btn-primary" href="{{ route('auth.projects.create') }}">Create a new Project</a>
             </div>
         @endauth    
     </div>
@@ -34,7 +34,7 @@
                     <td>{{ $project->repository }}</td>
                     <td>{{ $project->last_commit }}</td>
                     <td class="text-center">
-                      <a href="{{ route('projects.show', $project )}}">
+                      <a href="{{ route('auth.projects.show', $project )}}">
                           <i class="fa-solid fa-circle-info"></i>
                       </a>
                     @auth
