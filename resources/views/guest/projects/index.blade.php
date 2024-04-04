@@ -41,10 +41,10 @@
                         <a href="{{ route('admin.projects.edit' , $project)}}">
                           <i class="fa-solid fa-file-pen"></i>
                         </a>
-                        <form class="d-inline-block" action="#" method="POST">
+                        <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button class="border border-0 delete-button" type="submit">
+                        <button class="border border-0 delete-button" type="submit" data-title='{{ $project->title }}'>
                             <i class="fa-solid fa-trash-can text-danger"></i>
                         </button>
                         </form>
@@ -73,4 +73,32 @@
         align-items: flex-start;
       }
     </style>
+@endsection
+
+@section('js')
+    <script>
+
+      const deleteButtons = document.querySelectorAll('.delete-button');
+
+        if(deleteButtons) {
+
+          deleteButtons.forEach(button => {
+          
+            button.addEventListener('click', function (event) {
+
+              if(!confirm('This action will permanently delete the post ' + this.dataset.title)) {
+
+                event.preventDefault();
+
+              }
+
+            })
+        });
+
+      }
+
+      // 
+      
+
+    </script>
 @endsection

@@ -61,4 +61,16 @@ class ProjectController extends Controller
 
         return redirect()->route('projects.show', $project);
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Comic  $comic
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Project $project)
+    {
+        $project->delete();
+        return redirect()->route('projects.index');
+    }
 }

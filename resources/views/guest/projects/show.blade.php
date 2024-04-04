@@ -37,11 +37,11 @@
                 </div>
 
                 <div class="col-12">
-                    <a class="btn btn-primary ms-2" href="{{ route('admin.projects.edit', $project) }}">Modify this comic</a>
-                    <form class="d-inline" action="#" method="POST">
+                    <a class="btn btn-primary ms-2" href="{{ route('admin.projects.edit', $project) }}">Modify this project</a>
+                    <form class="d-inline" action="{{ route('admin.projects.destroy', $project) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger" id='delete-btn'>Delete this comic</button>
+                        <button type="submit" class="btn btn-danger" id='delete-btn'>Delete this project</button>
                     </form>
                 </div>
                 <div class="col-12">
