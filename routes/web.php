@@ -3,7 +3,7 @@
 use App\Http\Controllers\Guest\DashboardController as GuestDashboardController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Guest\ProjectController as GuestProjectController;
-use App\Http\Controllers\Auth\ProjectController as AuthProjectController;
+use App\Http\Controllers\Admin\ProjectController as AdminProjectController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -36,11 +36,11 @@ Route::middleware('auth')
   });
 
 Route::middleware('auth')
-  ->name('auth.')
-  ->prefix('auth')
+  ->name('admin.')
+  ->prefix('admin')
   ->group(function () {
 
-    Route::resource('projects', AuthProjectController::class);
+    Route::resource('projects', AdminProjectController::class);
   });
 
 require __DIR__ . '/auth.php';
