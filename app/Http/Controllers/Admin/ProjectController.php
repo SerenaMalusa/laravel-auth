@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
 
 
 class ProjectController extends Controller
@@ -29,6 +30,7 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
+        // $data = $request->all();
         $data = $request->validated();
         $project = new Project();
         $project->fill($data);
@@ -55,9 +57,10 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Project $project)
+    public function update(UpdateProjectRequest $request, Project $project)
     {
-        $data = $request->all();
+        // $data = $request->all();
+        $data = $request->validated();
         $project->update($data);
 
         return redirect()->route('projects.show', $project);
